@@ -1,0 +1,12 @@
+{
+  "name": "CodeSentinel",
+  "description": "A code auditing application that scans repositories for security risks, code quality issues, unfinished work, and configuration gaps.",
+  "backend": {
+    "framework": "Flask",
+    "entrypoint": "backend/run.py"
+  },
+  "frontend": {
+    "framework": "React",
+    "directory": "frontend"
+  }
+}
