@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { min-height: 100%; }
+body {
+  @apply bg-ink-900 text-slate-200 font-sans antialiased;
+  background-image:
+    radial-gradient(900px 500px at 85% -10%, rgba(139, 92, 246, 0.18), transparent 60%),
+    radial-gradient(700px 400px at -5% 10%, rgba(34, 211, 238, 0.10), transparent 60%);
+  background-attachment: fixed;
+}
+::selection { background: rgba(139, 92, 246, 0.45); }
+* { scrollbar-width: thin; scrollbar-color: #34417a transparent; }
+
+@layer components {
+  .card { @apply rounded-2xl border border-ink-600/60 bg-ink-800/70 backdrop-blur-sm shadow-lg shadow-black/20; }
+  .card-pad { @apply card p-5; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-200 disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-400/70; }
+  .btn-primary { @apply btn bg-gradient-to-r from-brand-600 to-brand-500 text-white shadow-glow hover:brightness-110 active:scale-[.98]; }
+  .btn-secondary { @apply btn border border-ink-500 bg-ink-700/60 text-slate-100 hover:border-accent-400/60 hover:bg-ink-700; }
+  .btn-ghost { @apply btn text-slate-300 hover:bg-ink-700/70 hover:text-white; }
+  .btn-danger { @apply btn border border-sev-critical/40 text-sev-critical hover:bg-sev-critical/10; }
+  .input { @apply w-full rounded-xl border border-ink-500 bg-ink-900/70 px-3.5 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 transition focus:border-accent-400/70 focus:outline-none focus:ring-2 focus:ring-accent-400/20; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition; }
+  .label { @apply text-xs font-semibold uppercase tracking-wider text-slate-400; }
+  .h-page { @apply text-2xl font-bold tracking-tight text-white sm:text-3xl; }
+}

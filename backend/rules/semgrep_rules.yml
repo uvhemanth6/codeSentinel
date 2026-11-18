@@ -1,0 +1,20 @@
+rules:
+  - id: cs-flask-render-template-string
+    languages: [python]
+    severity: ERROR
+    message: "render_template_string() with a non-literal template enables server-side template injection."
+    pattern: render_template_string($X, ...)
+    pattern-not: render_template_string("...", ...)
+    metadata: {title: "Server-side template injection", family: "ssti", subcategory: "Injection", cwe: "CWE-1336", confidence: medium, impact: "Remote code execution via template expressions.", fix: "Use render_template with static template files."}
+  - id: cs-express-eval
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: "eval() executes arbitrary strings as code."
+    pattern: eval($X)
+    metadata: {title: "eval() usage", family: "dangerous-function", subcategory: "Dangerous Functions", cwe: "CWE-95", confidence: high}
+  - id: cs-java-weak-random
+    languages: [java]
+    severity: WARNING
+    message: "java.util.Random is not cryptographically secure; use SecureRandom for tokens."
+    pattern: new java.util.Random(...)
+    metadata: {title: "Insecure randomness", family: "weak-crypto", subcategory: "Cryptography", cwe: "CWE-338", confidence: low}
