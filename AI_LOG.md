@@ -1,4 +1,4 @@
-# AI Assistance Log
+﻿# AI Assistance Log
 
 This file records AI assistance used while preparing the CodeSentinel project.
 
